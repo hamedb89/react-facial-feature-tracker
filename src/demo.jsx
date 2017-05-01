@@ -1,5 +1,6 @@
 import React from 'react';
 import PubSub from 'pubsub-js';
+import $ from 'jquery';
 
 class Demo extends React.Component {
 	constructor(props) {
