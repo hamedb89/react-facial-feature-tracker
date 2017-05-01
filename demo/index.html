@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
+		<script src="./build/demo.js"></script>
+		<script src="./build/react-facial-feature-tracker.js"></script>
+	</head>
+	<body>
+		
+		<div id="demo"></div>
+
+		<script>
+			$(function(){
+				var props = {
+					facialFeatureTracker: window.ReactFacialFeatureTracker
+				};
+
+				ReactDOM.render( React.createElement(window.Demo, props), document.getElementById('demo'));
+			});
+		</script>
+	</body>
+</html>

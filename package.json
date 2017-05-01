@@ -1,0 +1,25 @@
+{
+  "name": "react-facial-feature-tracker",
+  "version": "1.0.0",
+  "description": "react component for an clmtracker.js implementation",
+  "main": "index.js",
+  "author": "Hamed Bahrami <hi@hamedbahrami.de>",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "clmtrackr": "^1.0.1",
+    "getusermedia": "^2.0.1",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "pubsub-js": "^1.5.6",
+    "react": "^15.5.4",
+    "watchjs": "^0.0.0",
+    "webpack-stream": "^3.2.0"
+  }
+}
