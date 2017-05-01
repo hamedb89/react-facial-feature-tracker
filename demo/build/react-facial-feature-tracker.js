@@ -211,7 +211,7 @@
 
 				return _react2.default.createElement(
 					'div',
-					{ className: 'emotion-cam' },
+					{ className: 'the-video' },
 					_react2.default.createElement('video', {
 						width: '400',
 						height: '300',

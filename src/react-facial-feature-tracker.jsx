@@ -121,7 +121,7 @@ class ReactFacialFeatureTracker extends React.Component {
 
 	render() {
 		return (
-			<div className="emotion-cam">
+			<div className="the-video">
 				<video
 					width="400"
 					height="300"
