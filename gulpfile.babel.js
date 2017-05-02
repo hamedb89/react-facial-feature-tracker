@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import webpack from 'webpack-stream';
 import BrowserSync from 'browser-sync';
+import eslint from 'gulp-eslint';
 import path from 'path';
 import glob from 'glob';
 
@@ -35,7 +36,14 @@ gulp.task('js', () => {
 		.pipe(gulp.dest('demo/build'));
 });
 
-gulp.task('build', ['js']);
+gulp.task('lint', () => {
+	return gulp.src('src/*.jsx')
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError());
+});
+
+gulp.task('build', ['lint', 'js']);
 
 gulp.task('watch', () => {
 	bs.init({
