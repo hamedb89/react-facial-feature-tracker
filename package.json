@@ -2,7 +2,7 @@
   "name": "react-facial-feature-tracker",
   "version": "1.0.0",
   "description": "react component for an clmtracker.js implementation",
-  "main": "index.js",
+  "main": "build/react-facial-feature-tracker.js",
   "author": "Hamed Bahrami <hi@hamedbahrami.de>",
   "license": "MIT",
   "dependencies": {
