@@ -8,7 +8,7 @@ import glob from 'glob';
 const bs = BrowserSync.create();
 
 gulp.task('js', () => {
-	gulp.src('./src/*.jsx')
+	return gulp.src('./src/*.jsx')
 		.pipe(webpack({
 			entry: {
 				demo: './src/demo',

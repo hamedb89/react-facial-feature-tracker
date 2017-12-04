@@ -1,5 +1,4 @@
 import React from 'react';
-import getUserMedia from 'getusermedia';
 import emotionClassifier from './models/emotionclassifier.js';
 import emotionModel from './models/emotionmodel.js';
 import pModel from './models/pmodel.js';
@@ -41,7 +40,9 @@ class ReactFacialFeatureTracker extends React.Component {
 
 		// Browser fragt jetzt nach der Webcam
 		// die Funktion braucht folgende Argumente navigator.getUserMedia(optionen, success);
-		getUserMedia({ video : true}, this.getUserMediaCallback.bind(this) );
+		navigator.mediaDevices.getUserMedia({ video : true, audio: false })
+			.then(this.getUserMediaCallback.bind(this))
+			.catch(this.getUserMediaFailCallback.bind(this));
 
 		//
 		// Hier wird das Tracking an sich implmentiert
@@ -71,13 +72,22 @@ class ReactFacialFeatureTracker extends React.Component {
 		return false;
 	}
 
-	getUserMediaCallback(err, stream ) {
-		// Damit es auch auf allen Browsern funktioniert
-		// technisch wichtig, aber eher unwichtig für das Tracking
-		this.video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+	getUserMediaCallback(stream) {
+		// add camera stream if getUserMedia succeeded
+		if ("srcObject" in this.video) {
+			this.video.srcObject = stream;
+		} else {
+			// Damit es auch auf allen Browsern funktioniert
+			// technisch wichtig, aber eher unwichtig für das Tracking
+			this.video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+		}
 
 		// Um sicher zu gehen, dass das Video auch wirklich abgespielt wird.
 		this.video.play();
+	}
+
+	getUserMediaFailCallback(err) {
+		console.log('error', err);
 	}
 
 	startVideo(){
